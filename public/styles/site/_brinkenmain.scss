@@ -1,0 +1,15 @@
+.brinkenMain {
+  margin: 10px auto 0 auto;
+  width: 98%;
+  height: 600px;
+  position: relative;
+  background-size:contain;
+  background: white url('../../images/brinkenlogo.jpg') no-repeat center;
+}
+
+.brinkenMain img{
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  margin-left: 20%;
+}

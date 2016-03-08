@@ -52,9 +52,6 @@ keystone.init({
 	'app': app,
 	'mongoose': mongoose,
 	'static': ['public', 'bower_components'],
-
-	//'view engine': 'jade',
-	//'headless': true,
 	
 	'auto update': true,
 	'session': true,

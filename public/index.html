@@ -1,23 +1,57 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>-->
+		<link rel="stylesheet" href="./styles/site.css"/>
 		<script src="/angular/angular.min.js"></script>
 		<script src="/angular-route/angular-route.js"></script>
-		<script type="text/javascript" src="/angular/angular.min.js"></script>
 
 		<script type="text/javascript" src="app.js"></script>
+		
 	</head>
-	<body ng-app="myApp">
-	<!--<body ng-app="app" ng-controller="MainController">-->
-	
 
-		<div class="container">
-			<!--<h1>{{main.title}}</h1>-->
+	
+	<body ng-app="myApp" ng-controller="MainController as main"   >
+
+	<header class="nav-bar">
+		<div class="menu-wrapper">
+			<nav class="menu">
+				<a href="/team">Laget</a>
+				<a href="/talk">Prat</a>
+				<a href="/pictures">Bilder</a>
+			</nav>
 		</div>
+	</header>
+	
+	<div class="brinkenMain">
+		<!--<img src="./images/brinkenlogo.jpg"/>-->
+		
+	</div>
+	
+	
+		<div class="container">
+			<h1>{{main.title}}</h1>
+		</div>
+
+		<h1>{{main.players.name}}</h1>
+		<h2>{{main.players.price}}</h2>
+		<p>{{main.players.description}}</p>
+		
 		<p>Der ja</p>
 		<p>{{2 + 3}}</p>
 		<p> Hei {{"Hei" + "you!"}}</p>
 	<div>Hello {{1 + 1}} the World!</div>
+
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">@</span>
+			<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1"/>
+		</div>
+
+		<ul class="nav nav-pills">
+			<li role="presentation" class="active"><a href="#">Home</a></li>
+			<li role="presentation"><a href="#">Profile</a></li>
+			<li role="presentation"><a href="#">Messages</a></li>
+		</ul>
+	
 	</body>
 </html>
