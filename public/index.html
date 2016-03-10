@@ -13,45 +13,96 @@
 	
 	<body ng-app="myApp" ng-controller="MainController as main"   >
 
-	<header class="nav-bar">
-		<div class="menu-wrapper">
-			<nav class="menu">
-				<a href="/team">Laget</a>
-				<a href="/talk">Prat</a>
-				<a href="/pictures">Bilder</a>
-			</nav>
+		<header class="nav-bar">
+			<div class="menu-wrapper">
+				<nav class="menu">
+					<a href="/team">Laget</a>
+					<a href="/talk">Prat</a>
+					<a href="/pictures">Bilder</a>
+				</nav>
+			</div>
+		</header>
+	
+		<div class="brinkenMain">
+			<div class="link-bar">
+				<ul class="primary">
+					<li>
+						<a href="/team">Laget</a>
+					</li>
+					<li>
+						<a href="/talk">Prat</a>
+					</li>
+					<li>
+						<a href="/pictures">Bilder</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	</header>
-	
-	<div class="brinkenMain">
-		<!--<img src="./images/brinkenlogo.jpg"/>-->
-		
-	</div>
-	
 	
 		<div class="container">
 			<h1>{{main.title}}</h1>
 		</div>
+		
+		<section class="persons">
+			<div class="person" ng-init="tab =1" ng-repeat="person in main.players">
+				<h1>{{person.name}}</h1>
+				<img id="player-picture" ng-src="./../images/{{person.images[0].full}}"/>
+					
+					<section class="nav-and-info" ng-controller="PanelController as panel">
+						<div class="navbar">
+							<ul class="nav nav-pills">
+								<li ng-class="{ active: panel.isSelected(1)}"> <a href ng-click="panel.selectPanel(1)">Beskrivelse</a></li>
+								<li ng-class="{ active: panel.isSelected(2)}"> <a href ng-click="panel.selectPanel(2)">Stats</a></li>
+								<li ng-class="{ active: panel.isSelected(3)}"> <a href ng-click="panel.selectPanel(3)">Historikk</a></li>
+							</ul>
+						</div>
+						<div class="panel" ng-show="panel.isSelected(1)">
+							<p>{{person.description}}</p>
+						</div>
+						<div class="panel" ng-show="panel.isSelected(2)">
+							<p>{{person.price}}</p>
+						</div>
+						<div class="panel" ng-show="panel.isSelected(3)">
+							<p>{{person.history}}</p>
+						</div>
+					</section>
+			</div>
+		</section>
 
-		<h1>{{main.players.name}}</h1>
-		<h2>{{main.players.price}}</h2>
-		<p>{{main.players.description}}</p>
+		<div class="players-table" ng-repeat="player in main.players">
+			<table ng-hide="player.isNotPlayingAtBrinken">
+				<tr>
+					<td>
+						{{player.name}}
+					</td>
+				</tr>
+				<tr>
+					<td >
+						{{player.price}}
+					</td>
+				</tr>
+				<tr >
+					<td >
+						{{player.description}}
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<button ng-show="player.show">YO!</button>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<img id="player-pic" ng-src="./../images/{{player.images[0].full}}"/>
+					</td>
+				</tr>
+			</table>
+		</div>
 		
 		<p>Der ja</p>
 		<p>{{2 + 3}}</p>
 		<p> Hei {{"Hei" + "you!"}}</p>
 	<div>Hello {{1 + 1}} the World!</div>
-
-		<div class="input-group">
-			<span class="input-group-addon" id="basic-addon1">@</span>
-			<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1"/>
-		</div>
-
-		<ul class="nav nav-pills">
-			<li role="presentation" class="active"><a href="#">Home</a></li>
-			<li role="presentation"><a href="#">Profile</a></li>
-			<li role="presentation"><a href="#">Messages</a></li>
-		</ul>
 	
 	</body>
 </html>
