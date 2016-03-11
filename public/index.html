@@ -7,6 +7,7 @@
 		<script src="/angular-route/angular-route.js"></script>
 
 		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="/js/playercard.js"></script>
 		
 	</head>
 
@@ -43,32 +44,9 @@
 			<h1>{{main.title}}</h1>
 		</div>
 		
-		<section class="persons">
-			<div class="person" ng-init="tab =1" ng-repeat="person in main.players">
-				<h1>{{person.name}}</h1>
-				<img id="player-picture" ng-src="./../images/{{person.images[0].full}}"/>
-					
-					<section class="nav-and-info" ng-controller="PanelController as panel">
-						<div class="navbar">
-							<ul class="nav nav-pills">
-								<li ng-class="{ active: panel.isSelected(1)}"> <a href ng-click="panel.selectPanel(1)">Beskrivelse</a></li>
-								<li ng-class="{ active: panel.isSelected(2)}"> <a href ng-click="panel.selectPanel(2)">Stats</a></li>
-								<li ng-class="{ active: panel.isSelected(3)}"> <a href ng-click="panel.selectPanel(3)">Historikk</a></li>
-							</ul>
-						</div>
-						<div class="panel" ng-show="panel.isSelected(1)">
-							<p>{{person.description}}</p>
-						</div>
-						<div class="panel" ng-show="panel.isSelected(2)">
-							<p>{{person.price}}</p>
-						</div>
-						<div class="panel" ng-show="panel.isSelected(3)">
-							<p>{{person.history}}</p>
-						</div>
-					</section>
-			</div>
-		</section>
-
+		<!--<section ng-include="'/html/player-info.html'"></section>-->
+		<player-info></player-info>
+		
 		<div class="players-table" ng-repeat="player in main.players">
 			<table ng-hide="player.isNotPlayingAtBrinken">
 				<tr>

@@ -1,5 +1,5 @@
 (function() {
-	var myApp = angular.module('myApp', []);
+	var myApp = angular.module('myApp', ['player-cards']);
 
 
 	myApp.controller("MainController", function () {
@@ -36,17 +36,7 @@
 		images: [{full: 'halvard.jpg'}]
 	}
 	];
+	
 
-	myApp.controller('PanelController', function(){
-		this.tab = 1;
-
-		this.selectPanel = function(newValue){
-			this.tab = newValue;
-		};
-
-		this.isSelected = function(tabName){
-			return this.tab === tabName;
-		};
-	});
 	
 })();

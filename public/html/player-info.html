@@ -1,0 +1,8 @@
+<section class="persons">
+	<div class="person" ng-init="tab =1" ng-repeat="person in main.players">
+		<h1>{{person.name}}</h1>
+		<img id="player-picture" ng-src="./../images/{{person.images[0].full}}"/>
+
+		<navbar-info></navbar-info>
+	</div>
+</section>
