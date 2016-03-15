@@ -6,10 +6,13 @@ var Types = keystone.Field.Types;
  * ==========
  */
 
-var User = new keystone.List('User');
+var User = new keystone.List('User', {
+	map: {name: 'fullname'},
+	autokey: {path: 'test5', from: 'fullname', unique: true}
+});
 
 User.add({
-	name: { type: Types.Name, required: true, index: true },
+	fullname: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	password: { type: Types.Password, initial: true, required: true }
 }, 'Permissions', {
